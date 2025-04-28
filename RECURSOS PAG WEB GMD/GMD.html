@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GMD - Soluciones Mecánicas y Reciclaje Industrial</title>
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #00a651;
+            --dark-color: #333;
+            --light-color: #f8f9fa;
+            --accent-color: #ff9800;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f4f4f4;
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo span {
+            color: var(--secondary-color);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            position: relative;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 500;
+            padding: 10px 20px;
+            display: block;
+            transition: var(--transition);
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+        
+        nav ul li a.active {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/api/placeholder/1200/600') no-repeat center center/cover;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 80px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+        
+        .btn:hover {
+            background-color: #004494;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-secondary {
+            background-color: var(--secondary-color);
+            margin-left: 15px;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #008a42;
+        }
+        
+        /* About Section */
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -10px;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        
+        .about-text {
+            flex: 1;
+            padding-right: 30px;
+        }
+        
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Services Section */
+        .services {
+            background-color: #f9f9f9;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            position: relative;
+            height: 400px;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .service-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .service-content {
+            padding: 20px;
+        }
+        
+        .service-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .service-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 86, 179, 0.9);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            opacity: 0;
+            transition: var(--transition);
+            transform: translateY(20px);
+        }
+        
+        .service-card:hover .service-overlay {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Values Section */
+        .values-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        
+        .value-item {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+            padding: 20px;
+            margin: 10px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+        
+        .value-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .value-icon {
+            font-size: 40px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        /* Team Section */
+        .team-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+        
+        .team-member {
+            width: 280px;
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+        
+        .team-member:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .team-member img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+        }
+        
+        .team-info {
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .team-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+        
+        .team-info p {
+            color: var(--dark-color);
+            font-style: italic;
+        }
+        
+        /* Products Section */
+        .products {
+            background-color: #f9f9f9;
+        }
+        
+        .products-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .product-category {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+        
+        .product-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .product-category img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .product-info {
+            padding: 20px;
+        }
+        
+        .product-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .product-list {
+            list-style-type: none;
+            margin-top: 15px;
+        }
+        
+        .product-list li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .product-list li::before {
+            content: "•";
+            color: var(--secondary-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        /* Contact Section */
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .info-item {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        
+        .info-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            margin-right: 15px;
+        }
+        
+        .info-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            transition: var(--transition);
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary-color);
+            outline: none;
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 40px 0 20px;
+        }
+        
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section h3 {
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--secondary-color);
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-section ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-section ul li a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #555;
+            margin-top: 20px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-text {
+                padding-right: 0;
+                margin-bottom: 30px;
+            }
+        }
+        
+        /* Tab System */
+        .tab {
+            display: none;
+        }
+        
+        .tab.active {
+            display: block;
+        }
+        
+        /* Scroll To Top Button */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 999;
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .scroll-top.show {
+            opacity: 1;
+        }
+        
+        /* Innovation Section */
+        .innovation-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .innovation-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .innovation-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .innovation-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .innovation-content {
+            padding: 20px;
+        }
+        
+        .innovation-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .project-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .project-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .project-content {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    GMD<span>.</span>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#inicio" class="nav-link active" data-tab="inicio">Inicio</a></li>
+                        <li><a href="#nosotros" class="nav-link" data-tab="nosotros">Nosotros</a></li>
+                        <li><a href="#servicios" class="nav-link" data-tab="servicios">Servicios</a></li>
+                        <li><a href="#productos" class="nav-link" data-tab="productos">Productos</a></li>
+                        <li><a href="#innovacion" class="nav-link" data-tab="innovacion">Innovación</a></li>
+                        <li><a href="#proyectos" class="nav-link" data-tab="proyectos">Proyectos</a></li>
+                        <li><a href="#contacto" class="nav-link" data-tab="contacto">Contacto</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Inicio Tab -->
+        <div id="inicio" class="tab active">
+            <!-- Hero Section -->
+            <section class="hero">
+                <div class="hero-content">
+                    <h1>Soluciones de Diseño Mecánico y Reciclaje Industrial</h1>
+                    <p>Innovación y sostenibilidad para la industria mexicana</p>
+                    <div>
+                        <a href="#nosotros" class="btn">Conócenos</a>
+                        <a href="#contacto" class="btn btn-secondary">Contáctanos</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- About Section Preview -->
+            <section class="section">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>Acerca de GMD</h2>
+                    </div>
+                    <div class="about-content">
+                        <div class="about-text">
+                            <p>GMD es una empresa mexicana innovadora dedicada al diseño y la fabricación de soluciones mecánicas personalizadas mediante el uso de tecnologías avanzadas, como el corte y grabado láser.</p>
+                            <p>Nos enfocamos en ofrecer productos y servicios de alta calidad que abarcan diversos sectores industriales, incluyendo el automotriz, el diseño industrial y el reciclaje de materiales, con una visión de sostenibilidad y eficiencia en todos nuestros procesos.</p>
+                            <a href="#nosotros" class="btn">Conoce más</a>
+                        </div>
+                        <div class="about-image">
+                            <img src="/api/placeholder/500/300" alt="GMD empresa">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Services Preview -->
+            <section class="section services">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>Nuestros Servicios</h2>
+                    </div>
+                    <div class="services-grid">
+                        <div class="service-card">
+                            <img src="/api/placeholder/400/200" alt="Diseño Mecánico">
+                            <div class="service-content">
+                                <h3>Diseño Mecánico</h3>
+                                <p>Soluciones de diseño personalizadas para diversos sectores industriales.</p>
+                            </div>
+                            <div class="service-overlay">
+                                <h3>Diseño Mecánico</h3>
+                                <p>Desarrollamos soluciones de diseño a medida para la industria automotriz, equipos industriales y prototipos de alta precisión utilizando tecnologías avanzadas.</p>
+                                <a href="#servicios" class="btn">Ver más</a>
+                            </div>
+                        </div>
+                        <div class="service-card">
+                            <img src="/api/placeholder/400/200" alt="Reciclaje de Plásticos">
+                            <div class="service-content">
+                                <h3>Reciclaje de Plásticos</h3>
+                                <p>Procesamiento sostenible de plásticos industriales.</p>
+                            </div>
+                            <div class="service-overlay">
+                                <h3>Reciclaje de Plásticos</h3>
+                                <p>Ofrecemos servicios completos de reciclaje de plásticos industriales, clasificación y compactado de materiales, y consultoría en economía circular.</p>
+                                <a href="#servicios" class="btn">Ver más</a>
+                            </div>
+                        </div>
+                        <div class="service-card">
+                            <img src="/api/placeholder/400/200" alt="Corte y Grabado Láser">
+                            <div class="service-content">
+                                <h3>Corte y Grabado Láser</h3>
+                                <p>Precisión y calidad en corte y grabado de diversos materiales.</p>
+                            </div>
+                            <div class="service-overlay">
+                                <h3>Corte y Grabado Láser</h3>
+                                <p>Utilizamos tecnología láser de última generación para cortar y grabar con precisión en una amplia variedad de materiales, desde acrílico hasta madera y MDF.</p>
+                                <a href="#servicios" class="btn">Ver más</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Nosotros Tab -->
+        <div id="nosotros" class="tab">
+            <section class="section" style="margin-top: 80px;">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>Quiénes Somos</h2>
+                    </div>
+                    <div class="about-content">
+                        <div class="about-text">
+                            <p>GMD es una empresa mexicana innovadora dedicada al diseño y la fabricación de soluciones mecánicas personalizadas mediante el uso de tecnologías avanzadas, como el corte y grabado láser.</p>
+                            <p>Además, GMD está incursionando en el sector del reciclaje de plásticos, utilizando procesos avanzados y sostenibles para apoyar la industria automotriz y otros sectores en la correcta disposición y reutilización de plásticos. Nuestro objetivo es ofrecer una alternativa eficiente para el reciclaje, contribuyendo a la reducción de residuos y fomentando la economía circular en la región de San Luis Potosí y áreas cercanas.</p>
+                        </div>
+                        <div class="about-image">
+                            <img src="/api/placeholder/500/300" alt="GMD empresa">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Mission Vision Section -->
+            <section class="section" style="background-color: #f9f9f9;">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>Misión y Visión</h2>
+                    </div>
+                    <div class="about-content">
+                        <div class="about-text">
+                            <h3>Misión</h3>
+                            <p>Nuestra misión es proporcionar soluciones de diseño y reciclaje industrial innovadoras que mejoren la productividad, reduzcan el impacto ambiental y ofrezcan valor a nuestros clientes. Nos comprometemos con la mejora continua y la adopción de tecnologías de vanguardia para mantenernos como un referente de calidad y eficiencia en la industria.</p>
+                            <h3 style="margin-top: 20px;">Visión</h3>
+                            <p>Convertirnos en la empresa líder en soluciones de diseño mecánico y reciclaje industrial en México, promoviendo la sostenibilidad y la innovación, y ofreciendo productos y servicios de calidad que impacten positivamente a la industria y al medio ambiente.</p>
+                        </div>
+                        <div class="about-image">
+                            <img src="/api/placeholder/500/300" alt="Misión y Visión">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Values Section -->
+            <section class="section">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>Nuestros Valores</h2>
+                    </div>
+                    <div class="values-container">
+                        <div class="value-item">
+                            <div class="value-icon">★</div>
+                            <h3>Innovación</h3>
+                            <p>Buscamos siempre nuevas formas de mejorar nuestros productos y procesos.</p>
+                        </div>
+                        <div class="value-item">
+                            <div class="value-icon">♻</div>
+                            <h3>Sostenibilidad</h3>
+                            <p>Nos comprometemos con el respeto al medio ambiente mediante el reciclaje y la reutilización de materiales.</p>
+                        </div>
+                        <div class="value-item">
+                            <div class="value-icon">✓</div>
+                            <h3>Calidad</h3>
+                            <p>Proporcionamos soluciones que cumplen con los más altos estándares de excelencia.</p>
+                        </div>
+                        <div class="value-item">
+                            <div class="value-icon">⚖</div>
+                            <h3>Responsabilidad</h3>
+                            <p>Actuamos con integridad y transparencia, buscando siempre el beneficio a largo plazo para nuestros clientes y la sociedad.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Team Section -->
+            <section class="section" style="background-color: #f9f9f9;">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>Nuestro Equipo</h2>
+                    </div>
+                    <div class="team-container">
+                        <div class="team-member">
+                            <img src="/api/placeholder/300/300" alt="Director General">
+                            <div class="team-info">
+                                <h3>Jorge</h3>
+                                <p>Director General</p>
+                            </div>
+                        </div>
+                        <div class="team-member">
+                            <img src="/api/placeholder/300/300" alt="Gerente de Diseño Mecánico">
+                            <div class="team-info">
+                                <h3>Gerente de Diseño Mecánico</h3>
+                                <p>Dirección de Proyectos</p>
+                            </div>
+                        </div>
+                        <div class="team-member">
+                            <img src="/api/placeholder/300/300" alt="Gerente de Reciclaje">
+                            <div class="team-info">
+                                <h3>Gerente de Reciclaje</h3>
+                                <p>Operaciones Sostenibles</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Servicios Tab -->
+        <div id="servicios" class="tab">
+            <section class="section" style="margin-top: 80px;">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>Nuestros Servicios</h2>
+                    </div>
+                    <div class="services-grid">
+                        <div class="service-card">
+                            <img src="/api/placeholder/400/200" alt="Diseño Mecánico Personalizado">
+                            <div class="service-content">
+                                <h3>Diseño Mecánico Personalizado</h3>
+                                <p>Soluciones de diseño para la industria automotriz, diseño industrial y prototipos de alta precisión.</p>
+                            </div>
+                            <div class="service-overlay">
+                                <h3>Diseño Mecánico Personalizado</h3>
+                                <ul style="text-align: left; list-style-type: none; padding: 0;">
+                                    <li>✓ Soluciones para la industria automotriz</li>
+                                    <li>✓ Diseño de piezas y componentes</li>
+                                    <li>✓ Mejora de eficiencia en procesos</li>
+                                    <li>✓ Prototipos funcionales</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="service-card">
+                            <img src="/api/placeholder/400/200" alt="Reciclaje de Plásticos">
+                            <div class="service-content">
+                                <h3>Reciclaje de Plásticos</h3>
+                                <p>Reciclaje de
